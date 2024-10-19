@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Default ignored files
 /shelf/
 /workspace.xml
+=======
+>>>>>>> e66b1bb29df8a2cb5a455aaa9150edacf608ad69
 # Archivos generados por IntelliJ IDEA
 .idea/
 *.iml
@@ -43,9 +46,9 @@ Thumbs.db
 /.nbproject/
 
 # Archivos específicos de IntelliJ
-.idea/
 /*.iml
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/libraries
 /out/
+
