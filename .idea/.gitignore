@@ -1,3 +1,51 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Archivos generados por IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+*.ipr
+*.class
+
+# Directorios de compilación (Maven, Gradle, etc.)
+/target/
+/build/
+
+# Librerías descargadas localmente
+/.mvn/
+.mvn/
+**/logs/
+**/tmp/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración personal
+*.swp
+*.swo
+*.orig
+*.bak
+*~
+
+# Archivos de dependencias de Maven o Gradle
+# (Esto es opcional si usas una configuración por defecto con un `pom.xml` o `build.gradle`)
+/*.jar
+/*.war
+/*.ear
+
+# Configuraciones de Eclipse, NetBeans, y otras IDEs
+/.project
+/.classpath
+/.settings/
+/.nbproject/
+
+# Archivos específicos de IntelliJ
+.idea/
+/*.iml
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/libraries
+/out/
