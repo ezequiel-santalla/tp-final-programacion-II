@@ -1,7 +1,6 @@
-package model;
+package org.example.model;
 
-import enums.ECategory;
-import enums.ESurface;
+import org.example.enums.ESurface;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,11 +15,10 @@ public class Tournament {
     private LocalDate startingDate;
     private LocalDate endingDate;
     private Double prizeMoney;
-    private ECategory category;
     private Set<Player> players;
     private List<Round> rounds;
 
-    public Tournament(String name, String location, ESurface surface, LocalDate startingDate, LocalDate endingDate, Double prizeMoney, ECategory category, Set<Player> players, List<Round> rounds) {
+    public Tournament(String name, String location, ESurface surface, LocalDate startingDate, LocalDate endingDate, Double prizeMoney, Set<Player> players, List<Round> rounds) {
         this.ID = UUID.randomUUID();
         this.name = name;
         this.location = location;
@@ -28,7 +26,6 @@ public class Tournament {
         this.startingDate = startingDate;
         this.endingDate = endingDate;
         this.prizeMoney = prizeMoney;
-        this.category = category;
         this.players = players;
         this.rounds = rounds;
     }
@@ -89,14 +86,6 @@ public class Tournament {
         this.prizeMoney = prizeMoney;
     }
 
-    public ECategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(ECategory category) {
-        this.category = category;
-    }
-
     public Set<Player> getPlayers() {
         return players;
     }
@@ -123,7 +112,6 @@ public class Tournament {
                 ", startingDate=" + startingDate +
                 ", endingDate=" + endingDate +
                 ", prizeMoney=" + prizeMoney +
-                ", category=" + category +
                 ", players=" + players +
                 ", rounds=" + rounds +
                 '}';
