@@ -4,6 +4,7 @@ import org.example.model.Match;
 import org.example.model.Player;
 import org.example.repository.MatchRepositoryImp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MatchService {
@@ -32,6 +33,18 @@ public class MatchService {
 
     public List<Match> getAllMatches() {
         return matchRepository.getAll();
+    }
+
+    public List<Match> getMatchesByPlayer(Integer idPlayer) {
+        List<Match> matches = matchRepository.getAll();
+        List<Match> playerMatches = new ArrayList<>();
+        for (Match match : matches) {
+            if (match.getPlayerOne().getId().equals(idPlayer) ||
+                    match.getPlayerTwo().getId().equals(idPlayer)) {
+                playerMatches.add(match);
+            }
+        }
+        return playerMatches;
     }
 
     public Player getWinner(Match match) {
