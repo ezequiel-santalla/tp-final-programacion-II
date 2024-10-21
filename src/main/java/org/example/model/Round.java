@@ -5,22 +5,22 @@ import java.util.List;
 import java.util.UUID;
 
 public class Round {
-    private UUID ID;
+    private Integer id;
     private List<Match> matches;
     private Integer givenPoints;
 
-    public Round(List<Match> matches, Integer givenPoints, Double givenMoney) {
-        this.ID = UUID.randomUUID();
+    public Round(Integer id, List<Match> matches, Integer givenPoints, Double givenMoney) {
+        this.id = id;
         this.matches = matches;
         this.givenPoints = givenPoints;
     }
 
-    public UUID getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(UUID ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public List<Match> getMatches() {
@@ -38,5 +38,4 @@ public class Round {
     public void setGivenPoints(Integer givenPoints) {
         this.givenPoints = givenPoints;
     }
-
 }

@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class Tournament {
-    private UUID ID;
+    private Integer id;
     private String name;
     private String location;
     private ESurface surface;
@@ -18,8 +18,8 @@ public class Tournament {
     private Set<Player> players;
     private List<Round> rounds;
 
-    public Tournament(String name, String location, ESurface surface, LocalDate startingDate, LocalDate endingDate, Double prizeMoney, Set<Player> players, List<Round> rounds) {
-        this.ID = UUID.randomUUID();
+    public Tournament(Integer id, String name, String location, ESurface surface, LocalDate startingDate, LocalDate endingDate, Double prizeMoney, Set<Player> players, List<Round> rounds) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.surface = surface;
@@ -30,12 +30,12 @@ public class Tournament {
         this.rounds = rounds;
     }
 
-    public UUID getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(UUID ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -105,7 +105,7 @@ public class Tournament {
     @Override
     public String toString() {
         return "Tournament{" +
-                "ID=" + ID +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", surface=" + surface +
