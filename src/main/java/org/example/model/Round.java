@@ -4,10 +4,13 @@ package org.example.model;
 import java.util.List;
 import java.util.UUID;
 
-public class Round {
+public abstract class Round {
     private Integer id;
     private List<Match> matches;
     private Integer givenPoints;
+
+    public Round(){
+    }
 
     public Round(Integer id, List<Match> matches, Integer givenPoints, Double givenMoney) {
         this.id = id;
@@ -38,4 +41,7 @@ public class Round {
     public void setGivenPoints(Integer givenPoints) {
         this.givenPoints = givenPoints;
     }
+
+    public abstract void generateMatches(List<Player> players);
+    public abstract void updatePoints();
 }
