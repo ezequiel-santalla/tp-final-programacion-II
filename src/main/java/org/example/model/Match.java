@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Match {
     private Integer id;
     private Player playerOne;
-    private  Player playerTwo;
+    private Player playerTwo;
     private Result result;
 
     public Match() {
