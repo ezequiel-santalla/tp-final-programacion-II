@@ -35,15 +35,11 @@ public class PlayerService {
         return playerRepository.getAll();
     }
 
-    private List<Match> getMatchHistoryByPlayer(Integer id) {
-        return matchService.getAllMatches(/*id*/);
-    }
-
     private Integer getMatchesWon(Integer id) {
-        List<Match> allMatches = matchService.getAllMatches(/*id*/);
+        List<Match> matchesByPlayer = matchService.getMatchesByPlayer(id);
         Integer matchesWon = 0;
 
-        for (Match m : allMatches) {
+        for (Match m : matchesByPlayer) {
             int idWinner = matchService.getWinner(m).getId();
 
             if (idWinner == id) {
@@ -56,7 +52,7 @@ public class PlayerService {
     public String getStats(Integer id) {
         Player player = findPlayerById(id);
 
-        int matchesPlayed = getMatchHistoryByPlayer(id).size();
+        int matchesPlayed = matchService.getMatchesByPlayer(id).size();
         int matchesWon = getMatchesWon(id);
         int matchesLost = matchesPlayed - matchesWon;
         int totalPoints = player.getPoints();
@@ -68,10 +64,10 @@ public class PlayerService {
                 =================================
                 Name: %s %s
                 
-                Matches Played:     %d
-                Matches Won:        %d
-                Matches Lost:       %d
-                Total Points:       %d
+                Matches Played: %d
+                Matches Won:    %d
+                Matches Lost:   %d
+                Total Points:   %d
                 =================================
                 """,
                 player.getName(), player.getLastName(),
