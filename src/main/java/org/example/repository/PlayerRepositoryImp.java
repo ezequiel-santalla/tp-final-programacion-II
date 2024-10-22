@@ -4,7 +4,7 @@ import org.example.model.Player;
 
 import java.util.List;
 
-public class gitPlayerRepositoryImp implements Repository<Player, Integer> {
+public class PlayerRepositoryImp implements Repository<Player, Integer> {
 
     @Override
     public Integer create(Player model) {
