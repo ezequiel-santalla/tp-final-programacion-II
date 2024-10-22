@@ -1,4 +1,4 @@
-package org.example.model.InstaceOfMatch;
+package org.example.model.instaceOfMatch;
 
 import org.example.model.Match;
 import org.example.model.Player;
