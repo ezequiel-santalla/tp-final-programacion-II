@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Player {
+public class Player implements Comparable<Player> {
     private Integer id;
     private String name;
     private String lastName;
@@ -90,5 +90,10 @@ public class Player {
                 ", dateOfBirth=" + dateOfBirth +
                 ", points=" + points +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Player o) {
+        return o.getPoints().compareTo(this.points);
     }
 }

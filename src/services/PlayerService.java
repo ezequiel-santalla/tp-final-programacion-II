@@ -4,6 +4,7 @@ import model.Match;
 import model.Player;
 import repository.PlayerRepositoryImp;
 
+import java.util.Collections;
 import java.util.List;
 
 public class PlayerService {
@@ -78,7 +79,7 @@ public class PlayerService {
     private List<Player> getPlayerRankings() {
         List<Player> players = getAllPlayers();
 
-        players.sort((p1, p2) -> p2.getPoints().compareTo(p1.getPoints()));
+        Collections.sort(players);
 
         return players;
     }
