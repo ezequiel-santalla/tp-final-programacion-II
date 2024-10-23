@@ -49,7 +49,7 @@ public class PlayerService {
         return matchesWon;
     }
 
-    public String getStats(Integer id) {
+    public String showStatsByPlayer(Integer id) {
         Player player = findPlayerById(id);
 
         int matchesPlayed = matchService.getMatchesByPlayer(id).size();
@@ -74,4 +74,42 @@ public class PlayerService {
                 matchesPlayed, matchesWon, matchesLost, totalPoints
         );
     }
+
+    private List<Player> getPlayerRankings() {
+        List<Player> players = getAllPlayers();
+
+        players.sort((p1, p2) -> p2.getPoints().compareTo(p1.getPoints()));
+
+        return players;
+    }
+
+    public String showPlayerRankings() {
+        List<Player> rankedPlayerList = getPlayerRankings();
+
+        final int NAME_COLUMN_WIDTH = 20;
+        final int POINTS_COLUMN_WIDTH = 6;
+
+        StringBuilder rankingStr = new StringBuilder();
+
+        rankingStr.append(
+                """
+                ==================================
+                          Player Rankings
+                ==================================
+                Pos | Name                | Points
+                ----------------------------------
+                """);
+
+        for (int i = 0; i < rankedPlayerList.size(); i++) {
+            Player player = rankedPlayerList.get(i);
+
+            rankingStr.append(String.format("%-4d| %-"+NAME_COLUMN_WIDTH+"s | %-"+POINTS_COLUMN_WIDTH+"d\n",
+                    (i + 1), player.getName() + " " + player.getLastName(), player.getPoints()));
+        }
+
+        rankingStr.append("==================================\n");
+
+        return rankingStr.toString();
+    }
+
 }
