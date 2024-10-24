@@ -3,7 +3,7 @@ package model;
 
 import java.util.Objects;
 
-public class Match {
+public class Match implements Comparable<Match>{
     private Integer id;
     private Player playerOne;
     private Player playerTwo;
@@ -76,5 +76,10 @@ public class Match {
                 ", playerTwo=" + playerTwo +
                 ", result=" + result +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Match o) {
+        return this.id.compareTo(o.id);
     }
 }

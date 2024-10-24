@@ -9,7 +9,6 @@ import java.util.List;
 public class MatchService {
 
     private final MatchRepositoryImp matchRepository;
-
     public MatchService(MatchRepositoryImp matchRepository) {
         this.matchRepository = matchRepository;
     }
@@ -55,4 +54,5 @@ public class MatchService {
         }
         return winnerPlayer;
     }
+
 }
