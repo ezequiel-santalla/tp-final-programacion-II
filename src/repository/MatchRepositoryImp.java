@@ -17,7 +17,7 @@ public class MatchRepositoryImp implements Repository<Match, Integer> {
         this.filePath = filePath;
         File file = new File(filePath);
         if (!file.exists()) {
-            persistence.createFile(filePath;
+            persistence.createFile(filePath);
         }
     }
 
