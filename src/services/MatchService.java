@@ -9,10 +9,8 @@ import java.util.List;
 public class MatchService {
 
     private final MatchRepositoryImp matchRepository;
-    private final PersistenceFile persistence;
-    public MatchService(MatchRepositoryImp matchRepository, PersistenceFile persistence) {
+    public MatchService(MatchRepositoryImp matchRepository) {
         this.matchRepository = matchRepository;
-        this.persistence = persistence;
     }
 
     public Integer addMatch(Match match) {
@@ -56,7 +54,5 @@ public class MatchService {
         }
         return winnerPlayer;
     }
-    private Integer getLastId(){
-        return 0;
-    }
+
 }
