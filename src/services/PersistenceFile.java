@@ -25,17 +25,11 @@ public class PersistenceFile {
         }
     }
 
-    public void addDataToFile(String filePath, String data) {
+    public void addDataToFile(String filePath, String data) throws FileNotFoundException, IOException{
         File file = new File(filePath);
-        try {
-            PrintWriter pw = new PrintWriter(new FileWriter(file, true));
-            pw.println(data);
-            pw.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            try(PrintWriter pw = new PrintWriter(new FileWriter(file, true))) {
+                pw.println(data);
+            }
     }
 
     public String readFile(String filePath){

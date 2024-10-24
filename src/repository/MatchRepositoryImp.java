@@ -21,8 +21,6 @@ public class MatchRepositoryImp implements Repository<Match, Integer> {
         }
     }
 
-    //recibe el modelo, obtiene una lista de objetos ordenados por id a partir del archivo json
-    //obtiene el id del ultimo, le agrega 1 y lo asigna al nuevo y luego
     //agrega el objeto a la lista, convierte la lista nuevamente a json y sobreescribe el archivo
     @Override
     public Integer create(Match match) {
@@ -30,8 +28,11 @@ public class MatchRepositoryImp implements Repository<Match, Integer> {
         TreeSet<Match> matches = new TreeSet<>();
         Integer id = 0;
         try {
+            //si el archivo contiene datos los carga en una coleccion
             if(!data.equals("")) {
+                //obtiene una lista de objetos ordenados por id a partir del archivo json
                 matches = new TreeSet<>(JSONConverter.fromJsonArrayToList(data, Match.class));
+                //obtiene el id del ultimo, le agrega 1 y lo asigna al nuevo elemnento
                 id=matches.last().getId();
             }
             match.setId(id+ 1);
