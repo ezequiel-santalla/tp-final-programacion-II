@@ -76,7 +76,7 @@ public class PlayerService {
         );
     }
 
-    private List<Player> getPlayerRankings() {
+    public List<Player> getPlayerRankings() {
         List<Player> players = getAllPlayers();
 
         Collections.sort(players);
@@ -94,11 +94,11 @@ public class PlayerService {
 
         rankingStr.append(
                 """
-                ==================================
-                          Player Rankings
-                ==================================
-                Pos | Name                | Points
-                ----------------------------------
+                ===================================
+                              Ranking
+                ===================================
+                Pos | Name                 | Points
+                -----------------------------------
                 """);
 
         for (int i = 0; i < rankedPlayerList.size(); i++) {
@@ -112,5 +112,4 @@ public class PlayerService {
 
         return rankingStr.toString();
     }
-
 }
