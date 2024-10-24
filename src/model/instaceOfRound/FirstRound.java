@@ -1,9 +1,11 @@
-package model.instaceOfMatch;
+package model.instaceOfRound;
 
 import model.Match;
 import model.Player;
 import model.Round;
+import services.RoundService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FirstRound extends Round {
@@ -17,19 +19,18 @@ public class FirstRound extends Round {
 
 
     @Override
-    public void generateMatches(List<Player> players) {
+    public List<Match> generateMatches(List<Player> players) {
+        List<Match> matches = new ArrayList<>();
         for (int i = 0; i < players.size(); i += 2) {
-            Match match = new Match(players.get(i), players.get(i + 1)); // Empareja jugadores de 2 en 2
-            getMatches().add(match);
+            Match match = new Match(players.get(i), players.get(i + 1));
+            matches.add(match);
         }
+        return matches;
     }
 
     @Override
-    public void updatePoints() {
-        /*for (Match match : getMatches()) {
-            Player winner = match.getWinner();
-            winner.addPoints(1);
-        }*/
+    public Integer pointsEarned() {
+        return 90;
     }
 
 
