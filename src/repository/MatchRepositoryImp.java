@@ -27,11 +27,14 @@ public class MatchRepositoryImp implements Repository<Match, Integer> {
     @Override
     public Integer create(Match match) {
         String data = persistence.readFile(filePath);
-        TreeSet<Match> matches;
-        Integer id = -1;
+        TreeSet<Match> matches = new TreeSet<>();
+        Integer id = 0;
         try {
-            matches = new TreeSet<>(JSONConverter.fromJsonArrayToList(data, Match.class));
-            match.setId(matches.last().getId() + 1);
+            if(!data.equals("")) {
+                matches = new TreeSet<>(JSONConverter.fromJsonArrayToList(data, Match.class));
+                id=matches.last().getId();
+            }
+            match.setId(id+ 1);
             matches.add(match);
             persistence.writeFile(filePath, JSONConverter.toJson(matches));
         } catch (JsonProcessingException e) {
